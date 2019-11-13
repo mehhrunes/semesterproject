@@ -1,0 +1,49 @@
+@startuml "Class diagram, project related components"
+package Components <<Folder>>{
+Projects *-- IndividualProject
+AddTask *-- ProjectOverlay
+AddTask *-- TaskDate
+Tasks *-- AddTask
+Tasks *-- Checkbox
+
+Projects : setActive()
+Projects : setSelectedProject()
+
+IndividualProject : setShowConfirm()
+IndividualProject : deleteProject()
+
+AddProject : setProjectName()
+AddProject : addProject()
+AddProject : setShow()
+
+AddTask : setTask()
+AddTask : addTask()
+
+Tasks : useSelectedProjectValue()
+Tasks : useProjectsValue()
+Tasks : useTasks()
+Tasks : getTitle()
+
+Checkbox : archiveTask()
+
+TaskDate : setShowTaskDate()
+TaskDate : setTaskDate()
+
+ProjectOverlay : setProject()
+ProjectOverlay : setShowProjectOverlay()
+
+note "Projects component is composed of\n many IndividualProject components." as N1
+Projects .. N1
+IndividualProject .. N1
+
+note "Tasks component is composed of\n AddTask and Checkbox components" as N2
+Tasks .. N2
+AddTask .. N2
+Checkbox .. N2
+
+note "AddTask component is composed of\nProjectOverlay and TaskDate components" as N3
+AddTask .. N3
+ProjectOverlay .. N3
+TaskDate .. N3
+}
+@enduml
