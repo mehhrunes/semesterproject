@@ -1,0 +1,14 @@
+@startuml
+Projects *-- IndividualProject
+
+Projects : setActive()
+Projects : setSelectedProject()
+
+IndividualProject : setShowConfirm()
+IndividualProject : deleteProject()
+
+note "Projects component is composed of\n many IndividualProject components." as N1
+Projects .. N1
+IndividualProject .. N1
+
+@enduml

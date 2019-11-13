@@ -1,0 +1,10 @@
+@startuml
+scale 2
+(Create a task)
+(Launch the website)
+actor User
+
+User -up-> (Launch the website) : By typing in the url
+User -right-> (Create a task) : Through the UI
+
+@enduml

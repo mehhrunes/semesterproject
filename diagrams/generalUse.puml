@@ -1,0 +1,11 @@
+@startuml
+actor User
+control React
+database Firebase
+autonumber
+User -> React: Creates a task
+React -> Firebase: Fires a request to create a database entry
+Firebase -> React: Fetches new entry from the database
+React -> React: Updates UI
+React -> User: User sees the updated UI
+@enduml
